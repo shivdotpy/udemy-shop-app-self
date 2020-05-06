@@ -1,0 +1,28 @@
+import React from 'react';
+import { StyleSheet, Text, View, ScrollView, FlatList } from 'react-native';
+import { ITEMS } from '../data/shop_data';
+import Item from '../components/Item';
+import { Colors } from '../constants/Colors';
+
+const ShopScreen = (props) => {
+	return (
+		<FlatList
+			data={ITEMS}
+			renderItem={({ item }) => <Item item={item} />}
+			keyExtractor={(item) => item.id.toString()}
+		/>
+	);
+};
+
+ShopScreen.navigationOptions = {
+	title: 'Amazing Shop',
+	headerStyle: {
+		backgroundColor: Colors.primary
+	},
+	headerTitleStyle: {
+        fontWeight: 'bold',
+        color: Colors.whiteSecondary
+	}
+};
+
+export default ShopScreen;
