@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View, ImageBackground } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, TouchableOpacity } from 'react-native';
 import { Colors } from '../constants/Colors';
 
 const Item = (props) => {
 	return (
-		<View style={styles.screen}>
+		<TouchableOpacity style={styles.screen} onPress={props.onClick}>
 			<ImageBackground source={{ uri: props.item.image }} style={styles.image}>
 				<View style={styles.header}>
 					<Text numberOfLines={1} style={styles.headerText}>
@@ -23,7 +23,7 @@ const Item = (props) => {
 					<Text style={styles.footerItemText}>+ Cart</Text>
 				</View>
 			</View>
-		</View>
+		</TouchableOpacity>
 	);
 };
 
@@ -46,22 +46,22 @@ const styles = StyleSheet.create({
 		padding: 10
 	},
 	headerText: {
-        color: 'white',
-        fontSize: 16
+		color: 'white',
+		fontSize: 16
 	},
 	footerContainer: {
 		flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: "center",
+		justifyContent: 'space-between',
+		alignItems: 'center',
 		height: 40,
-        backgroundColor: Colors.primary,
-        paddingHorizontal: 10
-    },
-    footerItemText: {
-        color: Colors.whiteSecondary,
-        fontSize: 16,
-        fontWeight: "bold"
-    }
+		backgroundColor: Colors.primary,
+		paddingHorizontal: 10
+	},
+	footerItemText: {
+		color: Colors.whiteSecondary,
+		fontSize: 16,
+		fontWeight: 'bold'
+	}
 });
 
 export default Item;

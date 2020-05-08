@@ -5,10 +5,13 @@ import Item from '../components/Item';
 import { Colors } from '../constants/Colors';
 
 const ShopScreen = (props) => {
+	const onClickHandler = (id) => {
+		props.navigation.navigate('product', {id: id})
+	};
 	return (
 		<FlatList
 			data={ITEMS}
-			renderItem={({ item }) => <Item item={item} />}
+			renderItem={({ item }) => <Item item={item} onClick={() => onClickHandler(item.id)} />}
 			keyExtractor={(item) => item.id.toString()}
 		/>
 	);
@@ -20,8 +23,8 @@ ShopScreen.navigationOptions = {
 		backgroundColor: Colors.primary
 	},
 	headerTitleStyle: {
-        fontWeight: 'bold',
-        color: Colors.whiteSecondary
+		fontWeight: 'bold',
+		color: Colors.whiteSecondary
 	}
 };
 
